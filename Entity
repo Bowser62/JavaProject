@@ -1,0 +1,64 @@
+
+public class Entity {
+
+  private String type;
+	private String name;
+	private int health;
+	private int damage;
+	private String nDrop;
+	private String fDrop;
+	private String Spawn;
+
+	Entity(String t, String n, int h, int d, String nd, String fd, String S){
+		type = t;
+		name = n;
+		health = h;
+		damage = d;
+		nDrop = nd;
+		fDrop = fd;
+		Spawn = S;
+	}
+	
+	//Getter for type
+	String type(){
+		return type;
+	}//End getter
+	
+	
+	//Getter for name
+	String name(){
+		return name;
+	}//end getter
+	
+	
+	//Getter for health
+	int health(){
+		return health;
+	}//end getter
+	
+	
+	//Getter for damage
+	int damage(){
+		return damage;
+	}
+	
+	
+	//Getter for nDrop
+	String nDrop(){
+		return nDrop;
+	}//End getter
+	
+	
+	//Getter for fDrop
+	String fDrop(){
+		return fDrop;	
+	}//End getter
+	
+	
+	//Getter for Spawn
+	String Spawn(){
+		return Spawn;
+	}//End getter
+
+
+}
