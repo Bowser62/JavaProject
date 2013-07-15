@@ -1,0 +1,351 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+public class Menu {
+
+  public static final int BAT = 0;
+	public static final int CHICKEN = 1;
+	public static final int COW = 2;
+	public static final int MOOSHROOM = 3;
+	public static final int OCELOT = 4;
+	public static final int PIG = 5;
+	public static final int SHEEP = 6;
+	public static final int SQUID = 7;
+	public static final int VILLAGER = 8;
+	public static final int BLAZE = 9;
+	public static final int CAVESPIDER = 10;
+	public static final int CREEPER = 11;
+	public static final int GHAST = 12;
+	public static final int MAGMACUBE = 13;
+	public static final int SILVERFISH = 14;
+	public static final int SKELETON = 15;
+	public static final int SLIME = 16;
+	public static final int SPIDER = 17;
+	public static final int SPIDERJOCKEY = 18;
+	public static final int WITCH = 19;
+	public static final int WITHERSKELETON = 20;
+	public static final int ZOMBIE = 21;
+	public static final int ZOMBIEVILLAGER = 22;
+	public static final int ENDERMAN = 23;
+	public static final int WOLF = 24;
+	public static final int ZOMBIEPIG = 25;
+	public static final int DOG = 26;
+	public static final int CAT = 27;
+	public static final int HORSE = 28;
+	public static final int SGOLEM = 29;
+	public static final int IGOLEM = 30;
+
+
+	/**
+	 * @param args
+	 */
+	public static void println(String text){
+		System.out.println(text);
+	}
+
+	public static void print(String text){
+		System.out.print(text);
+	}
+
+	public static void printEntity (Entity e){
+		JOptionPane.showMessageDialog(null, "The " + e.name() + " is a " + e.type() + " entity. It has " 
+				+ e.health() + " points of health and deals " 
+				+ e.damage() + " points of damage.\nWhen they die they drop "
+				+ e.nDrop() + ".\nWhen they die by fire they will drop "
+				+ e.fDrop() + ".\nThey will spawn " + e.Spawn() + ".");
+	}
+
+	public static Entity[] pEntities(Entity []e){
+		Entity bat = new Entity ("peaceful", "bat", 6, 0, "nothing", "nothing", "in the world below layer 64, light level of 4 or less, and on October 20-November 3 with a light level of 7 or less");
+		e[0]=bat;
+		Entity chicken = new Entity ("peaceful", "chicken", 4, 0, "0-2 feathers, 1 raw chicken, and 1-3 experience points", "0-2 feathers, 1 cooked chicken, and 1-3 experience points", "on opaque blocks with a minimum of 2 meters above them, or from a thrown egg 12.5% chance");
+		e[1]=chicken;
+		Entity cow = new Entity ("peaceful", "cow", 10, 0, "0-2 leather, 1-3 raw beef, and 1-3 experience points", "0-2 leather, 1-3 steak, and 1-3 experience points", "on opaque blocks with a minimum of 2 meters of space above them, or after shearing a mooshroom");
+		e[2]=cow;
+		Entity mooshroom = new Entity ("peaceful", "mooshroom", 10, 0, "5 redmushrooms, 0-2 leather, 1-3 raw beef, and 1-3 experience points", "5 red mushrooms, 0-2 leather, 1-3 steak, and 1-3 experience", "in mushroom biomes");
+		e[3]=mooshroom;
+		Entity ocelot = new Entity ("peaceful", "ocelot", 10, 0, "1-3 experience points", "1-3 experience points", "in jungle biomes on grass or leaf blocks that are above layer 62");
+		e[4]=ocelot;
+		Entity pig = new Entity ("peaceful", "pig", 10, 0, "1-3 raw porkchop, and 1-3 experience points", "1-3 cooked porkchop, and 1-3 experience points", "on opaque blocks with a minimum of a 2 meter space above them");
+		e[5]=pig;
+		Entity sheep = new Entity ("peaceful", "sheep", 8, 0, "1 wool, and 1-3 experience points", "1 wool, and 1-3 experience points", "on opaque blocks with a minimum of a 2 meter space above them");
+		e[6]=sheep;
+		Entity squid = new Entity ("peaceful", "squid", 10, 0, "1-3 ink sac, and 1-3 experience points", "1-3 ink sac, and 1-3 experience points", "in 1 or more blocks of water between height level 46 and 62");
+		e[7]=squid;
+		Entity villager = new Entity ("peaceful", "villager", 20, 0, "nothing", "nothing", "in villages");
+		e[8]=villager;
+		return e;
+	}
+
+	public static Entity[] hEntities(Entity []e){
+		Entity blaze = new Entity ("hostile", "blaze", 20, 6, "0-1 blaze rod, and 10 experience points", "0-1 blaze rod, and 10 experience points", "in nether fortresses naturally or from a blaze spawner");
+		e[9]=blaze;
+		Entity cavespider = new Entity ("hostile", "cave spider", 12, 2, "0-2 string, 0-1 spider eye, and 5 experience points", "0-2 string, and 5 experience points", "in abandoned mine shafts");
+		e[10]=cavespider;
+		Entity creeper = new Entity ("hostile", "creeper", 20, 49, "0-2 gunpowder, and 5 experience points", "0-2 gunpowder, and 5 experience points", "in the overworld in light level 7 or less");
+		e[11]=creeper;
+		Entity ghast = new Entity ("hostile", "ghast", 10, 17, "0-2 gunpowder, 0-1 ghast tear, and 5 experience points", "0-2 gunpowder, 0-1 ghast tear, and 5 experience points", "in the nether with at least a 4 meter by 4 meter by 4 meter space");
+		e[12]=ghast;
+		Entity magmacube = new Entity ("hostile", "magma cube", 16, 6, "0-1 magma cream, and 4 experience points", "0-1 magma cream, and 4 experience points", "in the nther any light level");
+		e[13]=magmacube;
+		Entity silverfish = new Entity ("hostile", "silverfish", 8, 1, "5 experience points", "5 experience points", "after mining mosnter eggs, or from spawners in strongholds");
+		e[14]=silverfish;
+		Entity skeleton = new Entity ("hostile", "skeleton", 20, 3-4, "0-2 arrows, 0-2 bones, 5 experience, and a rare drop of a bow", "0-2 arrows, 0-2 bones, 5 experience, and a rare drop of a bow", "in the overworld with a light level of 7 or less");
+		e[15]=skeleton;
+		Entity slime = new Entity ("hostile", "slime", 16, 4, "0-2 slimeballs, and 4 experience points", "0-2 slimeballs, and 4 experience points", "in specefic chunks, and in swamp biomes on levels 51 through 69");
+		e[16]=slime;
+		Entity spider = new Entity ("hostile", "spider", 16, 2, "0-2 strings, 0-1 spider eye, and 5 experience points", "0-2 strings, and 5 experience points", "in a 3 meter by 3 meter by 2 meter space with a light level of 7 or less");
+		e[17]=spider;
+		Entity spiderjockey = new Entity ("hostile", "spider jockey", 32, 6, "0-2 bones, 0-2 arrows, 0-2 strings, 0-1 spider eyes, and 10 experience points", "0-2 bones, 0-2 arrows, 0-2 strings, and 10 experience points", "in the overworld in light levels of 7 or less");
+		e[18]=spiderjockey;
+		Entity witch = new Entity ("hostile", "witch", 26, 0, "0-6 glass bottles, 0-6 glowstone dust, 0-6 gunpowder, 0-6 redstone, 0-6 spider eyes, 0-6 sticks, and 0-6 sugar", "0-6 glass bottles, 0-6 glowstone dust, 0-6 gunpowder, 0-6 redstone, 0-6 spider eyes, 0-6 sticks, and 0-6 sugar", "in swamp huts with a light level of 7 or less");
+		e[19]=witch;
+		Entity witherskeleton = new Entity ("hostile", "wither skeleton", 20, 9, "0-1 coal, 0-2 bones, 1 wither skeleton skull, and 5 experience points", "0-1 coal, 0-2 bones, 1 wither skeleton skull, and 5 experience points", "in nether fortresses at light level 7 or less");
+		e[20]=witherskeleton;
+		Entity zombie = new Entity ("hostile", "zombie", 20, 5, "0-2 rotten flesh, 0-1 carrot, 0-1 iron ingot, 0-1 potato, and 5 experience points", "0-2 rotten flesh, 0-1 carrot, 0-1 iron ingot, 0-1 potato, and 5 experience points", "in the overworld with a light level of 7 or less and a 1 meter by 2 meter space");
+		e[21]=zombie;
+		Entity zombievillager = new Entity ("hostile", "zombie villager", 20, 5, "0-2 rotten flesh, 0-1 carrot, 0-1 iron ingot, 0-1 potato, and 5 experience points", "0-2 rotten flesh, 0-1 carrot, 0-1 iron ingot, 0-1 potato, and 5 experience points", "when a villager is killed by a zombie, but there is a 50% chance of this happening");
+		e[22]=zombievillager;
+		return e;
+	}
+
+	public static Entity[] nEntities(Entity []e){
+		Entity enderman = new Entity ("neutral", "enderman", 40, 7, "5 experience points", "5 experience points", "in the overworld when the light level is 7 or less, and they always spawn in the end");
+		e[23]=enderman;
+		Entity wolf = new Entity ("neutral", "wolf", 8, 2, "1-3 experience points", "1-3 experience points", "in forest and tiaga biomes with other wolves; in a pack");
+		e[24]=wolf;
+		Entity zombiepig = new Entity ("neutral", "zombie pigman", 20, 9, "5 experience points", "5 experience points", "in the nether, near the nether portal, or when a pig is struck by lightning");
+		e[25]=zombiepig;
+		return e;
+	}
+
+	public static Entity[] tEntities(Entity []e){
+		Entity dog = new Entity ("tamable", "dog", 20, 4, "1-3 experience points", "1-3 experience points", "when a wolf is tamed");
+		e[26]=dog;
+		Entity cat = new Entity ("tamable", "cat", 10, 0, "1-3 experience points", "1-3 experience points", "when a ocelot is tamed");
+		e[27]=cat;
+		Entity horse = new Entity ("tamable", "horse", 12, 0, "0-2 leather, saddle (if saddled), horse armor (if equiped), chest (if equiped), and 1-3 experience points", "0-2 leather, saddle (if saddled), horse armor (if equiped), chest (if equiped), and 1-3 experience points", "in plains");
+		e[28]=horse;
+		return e;
+	}
+
+	public static Entity[] uEntities(Entity []e){
+		Entity sgolem = new Entity ("utility", "snow golem", 4, 2, "0-15 snowballs", "0-15 snowballs", "when created by a player");
+		e[29]=sgolem;
+		Entity igolem = new Entity ("utility", "iron golem", 100, 7, "3-5 iron ingots, and 0-2 roses", "3-5 iron ingots, and 0-2 roses", "near a group of 10 villagers, and if the player creates it");
+		e[30]=igolem;
+		return e;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String enature;
+		String ename;
+		String again = null;
+		boolean valid = true;
+		Entity[] entities = new Entity[31];
+
+		//filling peaceful creatures
+		entities = pEntities(entities);
+
+		//filling hostile creatures
+		entities = hEntities(entities);
+
+		//filling neutral creatures
+		entities = nEntities(entities);
+
+		//filling tameable creatures
+		entities = tEntities(entities);
+
+		//filling utility creatures
+		entities = uEntities(entities);
+
+
+		JOptionPane.showMessageDialog(null,  "Welcome To The Minecraft Entity Guide", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+		do{
+			JOptionPane.showMessageDialog(null,  "The Entities are sorted by their type, ", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "1)Peaceful\n2)Hostile\n3)Neutral\n4)Tameable\n5)Utility", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null,  "Type \"Quit\" To Exit\nType \"Info\" For Information", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+			enature = JOptionPane.showInputDialog("Enter the entity type to show all entites in the group", "Entity Type Here");
+
+			if (enature.compareToIgnoreCase("Info")==0){
+				JOptionPane.showMessageDialog(null,  "  Made By\nEvan Young\n    2013");
+				valid = false;
+			}else if (enature.compareToIgnoreCase("Peaceful")==0){
+				println("");
+				JOptionPane.showMessageDialog(null,  "The entities in the peaceful group are\nBat\nChicken\nCow\nMooshroom\nOcelot\nPig\nSheep\nSquid\nVillager", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = true;
+				ename = JOptionPane.showInputDialog(null,  "Enter the entity you wish to learn about", "Entity Name Here");
+				ename=ename.toLowerCase();
+				switch (ename){
+				case "bat":
+					printEntity (entities [BAT]);
+					break;
+				case "chicken":
+					printEntity (entities [CHICKEN]);
+					break;
+				case "cow":
+					printEntity (entities [COW]);
+					break;
+				case "mooshroom":
+					printEntity (entities [MOOSHROOM]);
+					break;
+				case "ocelot":
+					printEntity (entities [OCELOT]);
+					break;
+				case "pig":
+					printEntity (entities [PIG]);
+					break;
+				case "sheep":
+					printEntity (entities [SHEEP]);
+					break;
+				case "squid":
+					printEntity (entities [SQUID]);
+					break;
+				case "villager":
+					printEntity (entities [VILLAGER]);
+					break;
+				}//end peaceful switch
+				again = JOptionPane.showInputDialog("\nWould you like to search again?", "Yes/No");
+				if (again.compareToIgnoreCase("Yes")==0){
+					valid = false;	
+				}else{
+					JOptionPane.showMessageDialog(null,  "You have chosen to exit the Minecraft Entity Guide, I hope you learned something!", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				}
+			}else if (enature.compareToIgnoreCase("Hostile")==0){
+				JOptionPane.showMessageDialog(null,  "The entites in the hostile group are\nBlaze\nCave Spider" +
+						"\nCreeper\nGhast\nMagma Cube\nSilverfish\nSkeleton" +
+						"\nSlime\nSpider\nSpider Jockey\nWitch\nWither Skeleton" +
+						"\nZombie\nZombie Villager", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = true;
+				ename = JOptionPane.showInputDialog("Enter the entity you wish to learn about", "Entity Name Here");
+				ename=ename.toLowerCase();
+				switch (ename){
+				case "blaze":
+					printEntity (entities [BLAZE]);
+					break;
+				case "cave spider":
+					printEntity (entities [CAVESPIDER]);
+					break;
+				case "creeper":
+					printEntity (entities [CREEPER]);
+					break;
+				case "ghast":
+					printEntity (entities [GHAST]);
+					break;
+				case "magma cube":
+					printEntity (entities [MAGMACUBE]);
+					break;
+				case "silverfish":
+					printEntity (entities [SILVERFISH]);
+					break;
+				case "skeleton":
+					printEntity (entities [SKELETON]);
+					break;
+				case "slime":
+					printEntity (entities [SLIME]);
+					break;
+				case "spider":
+					printEntity (entities [SPIDER]);
+					break;
+				case "spider jockey":
+					printEntity (entities [SPIDERJOCKEY]);
+					break;
+				case "witch":
+					printEntity (entities [WITCH]);
+					break;
+				case "wither skeleton":
+					printEntity (entities [WITHERSKELETON]);
+					break;
+				case "zombie":
+					printEntity (entities [ZOMBIE]);
+					break;
+				case "zombie villager":
+					printEntity (entities [ZOMBIEVILLAGER]);
+					break;
+				}//end hostile switch
+				again = JOptionPane.showInputDialog("\nWould you like to search again?", "Yes/No");
+				if (again.compareToIgnoreCase("Yes")==0){
+					valid = false;	
+				}else{
+					JOptionPane.showMessageDialog(null,  "You have chosen to exit the Minecraft Entity Guide, I hope you learned something", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				}
+			}else if (enature.compareToIgnoreCase("Neutral")==0){
+				JOptionPane.showMessageDialog(null,  "The entities in the neutral group are\nEnderman\nWolf\nZombie Pigman", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = true;
+				ename = JOptionPane.showInputDialog("Enter the entity you wish to learn about", "Entity Name Here");
+				ename=ename.toLowerCase();
+				switch (ename){
+				case "enderman":
+					printEntity (entities [ENDERMAN]);
+					break;
+				case "wolf":
+					printEntity (entities [WOLF]);
+					break;
+				case "zombie pigman":
+					printEntity (entities [ZOMBIEPIG]);
+					break;
+				}//end neutral switch
+				again = JOptionPane.showInputDialog("\nWould you like to search again?", "Yes/No");
+				if (again.compareToIgnoreCase("Yes")==0){
+					valid = false;	
+				}else{
+					JOptionPane.showMessageDialog(null,  "You have chosen to exit the Minecraft Entity Guide, I hope you learned something!", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				}
+			}else if (enature.compareToIgnoreCase("Tameable")==0){
+				JOptionPane.showMessageDialog(null,  "The entities in the tameable group are\nDog\nCat\nHorse", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = true;
+				ename = JOptionPane.showInputDialog("Enter the entity you wish to learn about", "Entity Name Here");
+				ename=ename.toLowerCase();
+				switch (ename){
+				case "dog":
+					printEntity (entities [DOG]);
+					break;
+				case "cat":
+					printEntity (entities [CAT]);
+					break;
+				case "horse":
+					printEntity (entities [HORSE]);
+					break;
+				}//end tameable switch
+				again = JOptionPane.showInputDialog("\nWould you like to search again?", "Yes/No");
+				if (again.compareToIgnoreCase("Yes")==0){
+					valid = false;	
+				}else{
+					JOptionPane.showMessageDialog(null,  "You have chosen to exit the Minecraft Entity Guide, I hope you learned something!", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				}
+			}else if (enature.compareToIgnoreCase("Utility")==0){
+				JOptionPane.showMessageDialog(null,  "The entities in the utility group are\nSnow Golem\nIron Golem", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = true;
+				ename = JOptionPane.showInputDialog("Enter the entity you wish to learn about", "Entity Name Here");
+				ename=ename.toLowerCase();
+				switch (ename){
+				case "snow golem":
+					printEntity (entities [SGOLEM]);
+					break;
+				case "iron golem":
+					printEntity (entities [IGOLEM]);
+					break;
+				}//end utility switch
+				again = JOptionPane.showInputDialog("\nWould you like to search again?", "Yes/No");
+				if (again.compareToIgnoreCase("Yes")==0){
+					valid = false;	
+				}else{
+					JOptionPane.showMessageDialog(null,  "You have chosen to exit the Minecraft Entity Guide", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				}
+			}else if (enature.compareToIgnoreCase("Quit")==0){
+				JOptionPane.showMessageDialog(null,  "You have chosen to quit the Minecraft Entity Guide, I hope you learned something!", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+
+			}else if(enature.compareToIgnoreCase("StormPie")==0){
+				JOptionPane.showMessageDialog(null,  "PIE STORMQUEEN", "STORMPIE", JOptionPane.WARNING_MESSAGE);
+			}else{
+				JOptionPane.showMessageDialog(null,  "That is not a valid entity type", "Minecraft Entity Guide", JOptionPane.PLAIN_MESSAGE);
+				valid = false;
+			}//end of else
+		}
+		while (valid==false);
+
+		input.close();
+		
+	}//end of main
+
+}//end of class
